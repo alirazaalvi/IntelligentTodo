@@ -2,9 +2,6 @@ package intelligenttodo.ali.com.data;
 
 import nl.qbusict.cupboard.annotation.Column;
 
-/**
- * Created by Ali on 9/13/2014.
- */
 public class Todo {
     private long _id;
     @Column("title")

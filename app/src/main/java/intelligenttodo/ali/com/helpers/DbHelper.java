@@ -8,26 +8,22 @@ import intelligenttodo.ali.com.data.Todo;
 
 import static nl.qbusict.cupboard.CupboardFactory.cupboard;
 
-public class DbHelper extends SQLiteOpenHelper{
+public class DbHelper extends SQLiteOpenHelper {
     private static final int mDbVersion = 1;
     private static DbHelper mInstance = null;
     private static final Object mutex = new Object();
 
-    public DbHelper(Context context) {
+    private DbHelper(Context context) {
         super(context, "Todo", null, mDbVersion);
     }
 
-    static
-    {
+    static {
         cupboard().register(Todo.class);
     }
 
-    public static DbHelper getIsntance(Context context)
-    {
-        if(mInstance == null)
-        {
-            synchronized (mutex)
-            {
+    public static DbHelper getIsntance(Context context) {
+        if (mInstance == null) {
+            synchronized (mutex) {
                 mInstance = new DbHelper(context);
             }
         }
@@ -37,7 +33,7 @@ public class DbHelper extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-       cupboard().withDatabase(db).createTables();
+        cupboard().withDatabase(db).createTables();
 
     }
 
