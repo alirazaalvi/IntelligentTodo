@@ -41,6 +41,8 @@ public class ListMainAdapter extends RecyclerView.Adapter<ListMainAdapter.ListHo
         return mListTodo == null ? 0 : mListTodo.size();
     }
 
+    
+
     public static class ListHolder extends RecyclerView.ViewHolder {
         TextView txtTitle;
 
